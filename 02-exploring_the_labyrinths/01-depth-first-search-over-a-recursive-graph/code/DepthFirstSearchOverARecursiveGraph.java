@@ -2,8 +2,8 @@ import java.util.LinkedList;
 
 public class DepthFirstSearchOverARecursiveGraph {
 
-    private LinkedList<Integer> adjacencyList[];
-    private boolean visited[];
+    private final LinkedList<Integer>[] adjacencyList;
+    private final boolean[] visited;
 
     // Создание графа
     DepthFirstSearchOverARecursiveGraph(int vertices) {
