@@ -33,5 +33,16 @@ public class DepthFirstSearchOverAGraphUsingAStackTest {
                 answer.length == graph.getStackDFS(0).length
                 && Arrays.equals(answer, graph.getStackDFS(0))
         );
+        /* graph.getStackDFS(0):
+                [0]
+                [1, 2, 3]
+                [1, 2, 5]
+                [1, 2, 4, 6, 7]
+                [1, 2, 4, 6]
+                [1, 2, 4]
+                [1, 2, 1]
+                [1, 2]
+                [1]
+         */
     }
 }
