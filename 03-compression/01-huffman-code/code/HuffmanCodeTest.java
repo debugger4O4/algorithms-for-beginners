@@ -41,10 +41,10 @@ public class HuffmanCodeTest {
         }
     }
 
-    public TreeMap<Character, Integer> countFrequency(String text) {
+    public TreeMap<Character, Integer> countFrequency(String message) {
         TreeMap<Character, Integer> freqMap = new TreeMap<>();
-        for (int i = 0; i < text.length(); i++) {
-            Character c = text.charAt(i);
+        for (int i = 0; i < message.length(); i++) {
+            Character c = message.charAt(i);
             Integer count = freqMap.get(c);
             freqMap.put(c, count != null ? count + 1 : 1);
         }
