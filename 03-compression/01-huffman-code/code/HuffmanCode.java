@@ -5,6 +5,7 @@ public class HuffmanCode {
 
     public HuffmanCode() {}
 
+    // Алгоритм
     public static HuffmanCodeTreeNode createHuffmanCode(ArrayList<HuffmanCodeTreeNode> pq) {
         while (pq.size() > 1) {
             Collections.sort(pq);
