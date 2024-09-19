@@ -27,7 +27,6 @@ public class DepthFirstSearchOverAGraphUsingAStack {
         boolean[] visited = new boolean[V];
         S.push(vertex);
         while (!S.empty()) {
-            System.out.println(S);
             int c = S.pop();
             visited[c] = true;
             for (int v : adjacencyList[c]) {
