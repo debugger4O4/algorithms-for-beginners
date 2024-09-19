@@ -34,7 +34,7 @@ public class DepthFirstSearchOverAGraphUsingAStackWithoutDuplicatesTest {
                 answer.length == graph.getStackWithoutDuplicatesDFS(0).length
                 && Arrays.equals(answer, graph.getStackWithoutDuplicatesDFS(0))
         );
-        /* graph.getStackDFS(0):
+        /* graph.getStackWithoutDuplicatesDFS(0):
                 [0]
                 [1, 2, 3]
                 [1, 2, 5]
