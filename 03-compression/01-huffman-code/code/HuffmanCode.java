@@ -1,45 +1,36 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.TreeMap;
 
 public class HuffmanCode {
 
-    public static HuffmanCode.CodeTreeNode createHuffmanCode(ArrayList<HuffmanCode.CodeTreeNode> pq) {
+    public HuffmanCode() {}
+
+    public static HuffmanCodeTreeNode createHuffmanCode(ArrayList<HuffmanCodeTreeNode> pq) {
         while (pq.size() > 1) {
             Collections.sort(pq);
-            HuffmanCode.CodeTreeNode x = pq.remove(pq.size() - 1);
-            HuffmanCode.CodeTreeNode y = pq.remove(pq.size() - 1);
+            HuffmanCodeTreeNode x = pq.remove(pq.size() - 1);
+            HuffmanCodeTreeNode y = pq.remove(pq.size() - 1);
             int sum =  y.weight + x.weight;
-            HuffmanCode.CodeTreeNode z = new HuffmanCode.CodeTreeNode(null, sum, x, y);
+            HuffmanCodeTreeNode z = new HuffmanCodeTreeNode(null, sum, x, y);
             pq.add(z);
         }
         return pq.get(0);
     }
 
-    public static TreeMap<Character, Integer> countFrequency(String text) {
-        TreeMap<Character, Integer> freqMap = new TreeMap<>();
-        for (int i = 0; i < text.length(); i++) {
-            Character c = text.charAt(i);
-            Integer count = freqMap.get(c);
-            freqMap.put(c, count != null ? count + 1 : 1);
-        }
-        return freqMap;
-    }
-
     // Класс для представления кодового дерева
-    public static class CodeTreeNode implements Comparable<CodeTreeNode> {
+    static class HuffmanCodeTreeNode implements Comparable<HuffmanCodeTreeNode> {
 
         Character content;
         int weight;
-        CodeTreeNode left;
-        CodeTreeNode right;
+        HuffmanCodeTreeNode left;
+        HuffmanCodeTreeNode right;
 
-        public CodeTreeNode(Character content, int weight) {
+        public HuffmanCodeTreeNode(Character content, int weight) {
             this.content = content;
             this.weight = weight;
         }
 
-        public CodeTreeNode(Character content, int weight, CodeTreeNode left, CodeTreeNode right) {
+        public HuffmanCodeTreeNode(Character content, int weight, HuffmanCodeTreeNode left, HuffmanCodeTreeNode right) {
             this.content = content;
             this.weight = weight;
             this.left = left;
@@ -47,7 +38,7 @@ public class HuffmanCode {
         }
 
         @Override
-        public int compareTo(CodeTreeNode o) {
+        public int compareTo(HuffmanCodeTreeNode o) {
             return o.weight - weight;
         }
 
