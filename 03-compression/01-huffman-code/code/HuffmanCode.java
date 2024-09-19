@@ -1,37 +1,38 @@
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class HuffmanCode {
 
-    public HuffmanCode() {}
+    public HuffmanCode() {
+    }
 
     // Алгоритм
-    public static HuffmanCodeTreeNode createHuffmanCode(ArrayList<HuffmanCodeTreeNode> pq) {
+    public static HuffmanCodeBinaryTree createHuffmanCode(List<HuffmanCodeBinaryTree> pq) {
         while (pq.size() > 1) {
             Collections.sort(pq);
-            HuffmanCodeTreeNode x = pq.remove(pq.size() - 1);
-            HuffmanCodeTreeNode y = pq.remove(pq.size() - 1);
-            int sum =  y.weight + x.weight;
-            HuffmanCodeTreeNode z = new HuffmanCodeTreeNode(null, sum, x, y);
+            HuffmanCodeBinaryTree x = pq.remove(pq.size() - 1);
+            HuffmanCodeBinaryTree y = pq.remove(pq.size() - 1);
+            int sum = y.weight + x.weight;
+            HuffmanCodeBinaryTree z = new HuffmanCodeBinaryTree(null, sum, x, y);
             pq.add(z);
         }
         return pq.get(0);
     }
 
     // Класс для представления кодового дерева
-    static class HuffmanCodeTreeNode implements Comparable<HuffmanCodeTreeNode> {
+    static class HuffmanCodeBinaryTree implements Comparable<HuffmanCodeBinaryTree> {
 
         Character content;
         int weight;
-        HuffmanCodeTreeNode left;
-        HuffmanCodeTreeNode right;
+        HuffmanCodeBinaryTree left;
+        HuffmanCodeBinaryTree right;
 
-        public HuffmanCodeTreeNode(Character content, int weight) {
+        public HuffmanCodeBinaryTree(Character content, int weight) {
             this.content = content;
             this.weight = weight;
         }
 
-        public HuffmanCodeTreeNode(Character content, int weight, HuffmanCodeTreeNode left, HuffmanCodeTreeNode right) {
+        public HuffmanCodeBinaryTree(Character content, int weight, HuffmanCodeBinaryTree left, HuffmanCodeBinaryTree right) {
             this.content = content;
             this.weight = weight;
             this.left = left;
@@ -39,14 +40,14 @@ public class HuffmanCode {
         }
 
         @Override
-        public int compareTo(HuffmanCodeTreeNode o) {
+        public int compareTo(HuffmanCodeBinaryTree o) {
             return o.weight - weight;
         }
 
         // Извлечение кода для символа
         public String getCodeForCharacter(Character ch, String parentPath) {
             if (content == ch) {
-                return  parentPath;
+                return parentPath;
             } else {
                 if (left != null) {
                     String path = left.getCodeForCharacter(ch, parentPath + 0);

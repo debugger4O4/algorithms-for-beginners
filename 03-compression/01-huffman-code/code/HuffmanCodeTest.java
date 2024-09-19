@@ -5,7 +5,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HuffmanCodeTest {
-    TreeMap<Character, String> codes;
+    Map<Character, String> codes;
     StringBuilder encoded;
 
     @Test
@@ -17,16 +17,16 @@ public class HuffmanCodeTest {
 
     public void initTest(String message) {
         // Дерево для подсчета частоты каждого символа
-        TreeMap<Character, Integer> frequencies = countFrequency(message);
+        Map<Character, Integer> frequencies = countFrequency(message);
 
         // Создание спсика листов дерева
-        ArrayList<HuffmanCode.HuffmanCodeTreeNode> pq = new ArrayList<>();
+        List<HuffmanCode.HuffmanCodeBinaryTree> pq = new ArrayList<>();
         for (Character c : frequencies.keySet()) {
-            pq.add(new HuffmanCode.HuffmanCodeTreeNode(c, frequencies.get(c)));
+            pq.add(new HuffmanCode.HuffmanCodeBinaryTree(c, frequencies.get(c)));
         }
 
         // Построение кодового дерева с помощью алгоритма Хаффмана
-        HuffmanCode.HuffmanCodeTreeNode huffmanCode = HuffmanCode.createHuffmanCode(pq);
+        HuffmanCode.HuffmanCodeBinaryTree huffmanCode = HuffmanCode.createHuffmanCode(pq);
 
         // Генерация таблицы префиксных кодов для кодируемых символов с помощью кодового дерева
         codes = new TreeMap<>();
@@ -41,8 +41,8 @@ public class HuffmanCodeTest {
         }
     }
 
-    public TreeMap<Character, Integer> countFrequency(String message) {
-        TreeMap<Character, Integer> freqMap = new TreeMap<>();
+    public Map<Character, Integer> countFrequency(String message) {
+        Map<Character, Integer> freqMap = new TreeMap<>();
         for (int i = 0; i < message.length(); i++) {
             Character c = message.charAt(i);
             Integer count = freqMap.get(c);
