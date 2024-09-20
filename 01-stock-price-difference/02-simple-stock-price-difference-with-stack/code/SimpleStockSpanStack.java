@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class SimpleStockSpanWithStack {
+public class SimpleStockSpanStack {
 
     // Алгоритм
     public static int[] getSimpleStockSpanWithStack(int[] quotes) {

@@ -1,13 +1,13 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BreadthFirstGraphSearch {
+public class BFS {
 
     private final LinkedList<Integer>[] adjacencyList;
     private final int V;
 
     // Создание графа
-    BreadthFirstGraphSearch(int vertices) {
+    BFS(int vertices) {
         adjacencyList = new LinkedList[vertices];
         for (int i = 0; i < vertices; i++) {
             adjacencyList[i] = new LinkedList<>();

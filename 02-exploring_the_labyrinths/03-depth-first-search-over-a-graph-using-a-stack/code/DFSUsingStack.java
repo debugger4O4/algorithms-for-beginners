@@ -1,13 +1,13 @@
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class DepthFirstSearchOverAGraphUsingAStackWithoutDuplicates {
+public class DFSUsingStack {
 
     private final LinkedList<Integer>[] adjacencyList;
     private final int V;
 
     // Создание графа
-    DepthFirstSearchOverAGraphUsingAStackWithoutDuplicates(int vertices) {
+    DFSUsingStack(int vertices) {
         adjacencyList = new LinkedList[vertices];
         for (int i = 0; i < vertices; i++) {
             adjacencyList[i] = new LinkedList<>();
@@ -21,21 +21,17 @@ public class DepthFirstSearchOverAGraphUsingAStackWithoutDuplicates {
     }
 
     // Алгоритм
-    public boolean[] getStackWithoutDuplicatesDFS(int vertex) {
+    public boolean[] getStackDFS(int vertex) {
         Stack<Integer> S = new Stack<>();
         // По дефолту заполняется false'ами
         boolean[] visited = new boolean[V];
-        boolean[] inStack = new boolean[V];
         S.push(vertex);
-        inStack[vertex] = true;
         while (!S.empty()) {
             int c = S.pop();
-            inStack[c] = false;
             visited[c] = true;
             for (int v : adjacencyList[c]) {
-                if (!visited[v] && !inStack[v]) {
+                if (!visited[v]) {
                     S.push(v);
-                    inStack[v] = true;
                 }
             }
         }

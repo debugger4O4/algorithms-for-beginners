@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DepthFirstSearchOverAGraphUsingAStackWithoutDuplicatesTest {
+public class DFSUsingStackWithoutDuplicatesTest {
 
     @Test
     void test() {
-        DepthFirstSearchOverAGraphUsingAStackWithoutDuplicates graph =
-                new DepthFirstSearchOverAGraphUsingAStackWithoutDuplicates(8);
+        DFSUsingStackWithoutDuplicates graph =
+                new DFSUsingStackWithoutDuplicates(8);
 
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);

@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DepthFirstSearchOverAGraphUsingAStackTest {
+public class BFSTest {
 
     @Test
     void test() {
-        DepthFirstSearchOverAGraphUsingAStack graph = new DepthFirstSearchOverAGraphUsingAStack(8);
+        BFS graph = new BFS(8);
 
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
@@ -30,19 +30,18 @@ public class DepthFirstSearchOverAGraphUsingAStackTest {
         boolean[] answer = {true, true, true, true, true, true, true, true};
 
         assertTrue(
-                answer.length == graph.getStackDFS(0).length
-                && Arrays.equals(answer, graph.getStackDFS(0))
+                answer.length == graph.getBFS(0).length
+                && Arrays.equals(answer, graph.getBFS(0))
         );
-        /* graph.getStackDFS(0):
-                [0]
-                [1, 2, 3]
-                [1, 2, 5]
-                [1, 2, 4, 6, 7]
-                [1, 2, 4, 6]
-                [1, 2, 4]
-                [1, 2, 1]
-                [1, 2]
-                [1]
+        /* graph.getBFS(0):
+            [0]
+            [1, 2, 3]
+            [2, 3, 4]
+            [3, 4]
+            [4, 5]
+            [5]
+            [6, 7]
+            [7]
          */
     }
 }

@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Test;
 
-public class DepthFirstSearchOverARecursiveGraphTest {
+public class DFSTest {
 
     @Test
     void test() {
-        DepthFirstSearchOverARecursiveGraph graph = new DepthFirstSearchOverARecursiveGraph(8);
+        DFS graph = new DFS(8);
 
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
