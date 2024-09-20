@@ -1,7 +1,6 @@
-import java.util.Arrays;
-
 public class SimpleStockSpan {
 
+    // Алгоритм
     public static int[] getSimpleStockSpan(int[] quotes) {
         int[] spans = new int[quotes.length];
         for (int i = 0; i < spans.length; i++) {

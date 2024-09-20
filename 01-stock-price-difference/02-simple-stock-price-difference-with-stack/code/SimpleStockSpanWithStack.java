@@ -2,6 +2,7 @@ import java.util.Stack;
 
 public class SimpleStockSpanWithStack {
 
+    // Алгоритм
     public static int[] getSimpleStockSpanWithStack(int[] quotes) {
         int[] spans = new int[quotes.length];
         spans[0] = 1;
