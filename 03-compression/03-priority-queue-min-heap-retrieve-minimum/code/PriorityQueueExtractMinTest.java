@@ -37,8 +37,24 @@ public class PriorityQueueExtractMinTest {
             heap = new ArrayList<>();
         }
 
-        public int parent(int i) {
-            return (i - 1) / 2;
+        public boolean hasChildren(int element) {
+            int index = heap.indexOf(heap.get(element));
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            return left > 0 || right > 0;
+        }
+
+        public int minChildren(int index) {
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            if (left < heap.size() && heap.get(left) < heap.get(index)) {
+                index = left;
+            }
+
+            if (right < heap.size() && heap.get(right) < heap.get(index)) {
+                index = right;
+            }
+            return index;
         }
 
         public void exchange(int i, int j) {
