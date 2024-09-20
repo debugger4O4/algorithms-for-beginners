@@ -1,7 +1,7 @@
-public class PriorityQueueAddingMinHeap {
+public class PriorityQueueInsert {
 
     // Алгоритм
-    public static void insertInPq(PriorityQueueAddingMinHeapTest.MinHeap pq, Integer c) {
+    public static void insertInPq(PriorityQueueInsertTest.MinHeap pq, Integer c) {
         int root = 0;
         pq.heap.add(c);
         int currentIndex = pq.heap.size() - 1;

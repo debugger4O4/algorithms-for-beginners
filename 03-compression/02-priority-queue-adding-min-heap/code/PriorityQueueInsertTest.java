@@ -2,14 +2,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class PriorityQueueAddingMinHeapTest {
+public class PriorityQueueInsertTest {
 
     @Test
     void test() {
 
         MinHeap pq = new MinHeap();
         pq.initTestData();
-        PriorityQueueAddingMinHeap.insertInPq(pq, 5);
+        PriorityQueueInsert.insertInPq(pq, 5);
         /*
             [6, 8, 17, 11, 13, 19] ->
             [6, 8, 17, 11, 13, 19, 5] ->
