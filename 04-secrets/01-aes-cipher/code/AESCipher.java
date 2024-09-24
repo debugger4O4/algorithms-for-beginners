@@ -26,7 +26,7 @@ public class AESCipher {
     private static short[][] mixMatrix = {{2, 3, 1, 1}, {1, 2, 3, 1}, {1, 1, 2, 3}, {3, 1, 1, 2}};
 
     // Алгоритм
-    public static Key aesCipher(short[] b, Key k, int n) {
+    public static Key aesCipher(byte[] b, Key k, int n) {
         short[][] s = createState(b);
         rk = new ExpandKey(k);
         s = addRoundKey(s, rk.getRoundKey(0));
@@ -43,7 +43,7 @@ public class AESCipher {
         return new Key(s);
     }
 
-    private static short[][] createState(short[] b) {
+    private static short[][] createState(byte[] b) {
         short[][] result = new short[4][4];
         for (int i = 0; i < b.length; i++) {
             int j = i % 4, k = i / 4;
