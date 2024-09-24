@@ -4,9 +4,11 @@ public class AESCipherTest {
 
     @Test
     void test() {
-        byte[] b = new byte[16];
-        String k = "SECRET_KEY";
-        String n = "AES cipher test";
-        AESCipher.aesCipher(b, k, n);
+        short[] b = new short[]{
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        };
+        Key k = new Key();
+        int n = 10;
+        System.out.println(AESCipher.aesCipher(b, k, n));
     }
 }
