@@ -3,12 +3,12 @@ import java.security.SecureRandom;
 /**
  * Класс для того, чтобы ключи можно было легко распечатать в целях тестирования. Он также может генерировать случайный ключ
  */
-public class Key {
+public class KeyCipher {
     // short, потому что byte не позволяет сохранять соответствующие шестнадцатеричные значения
     private short[][] keyValue = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
 
     //Генерирует криптографически безопасный случайный ключ
-    public Key() {
+    public KeyCipher() {
         SecureRandom random = new SecureRandom();
 
         byte[] bytes = new byte[16];
@@ -23,7 +23,7 @@ public class Key {
         }
     }
 
-    public Key(short[][] k) {
+    public KeyCipher(short[][] k) {
         keyValue = k;
     }
 

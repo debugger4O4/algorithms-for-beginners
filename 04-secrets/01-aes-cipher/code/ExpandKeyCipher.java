@@ -1,7 +1,7 @@
 /**
  * Класс расширяет первоначальный 128-битный ключ до десяти дополнительных ключей, необходимых для шифрования AES
  */
-public class ExpandKey {
+public class ExpandKeyCipher {
 
     // Набор ранудов с ключами. Количество блоков в расширенном ключе (4 для AES-128, 6 для AES-192 и 8 для AES-256)
     private final short[][] roundKeys = new short[4][44];
@@ -36,7 +36,7 @@ public class ExpandKey {
 
 
     // Генерирует дополнительные 10 ключей из исходного ключа
-    public ExpandKey(Key k) {
+    public ExpandKeyCipher(KeyCipher k) {
         byte row;
         byte column;
 
