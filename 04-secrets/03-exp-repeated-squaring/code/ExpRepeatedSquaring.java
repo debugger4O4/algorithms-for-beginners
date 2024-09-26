@@ -8,7 +8,7 @@ public class ExpRepeatedSquaring {
             if (d % 2 == 1) {
                 r *= c;
             }
-            d /= 2;
+            d /= 2; // Отрезается один бит справа
             c *= c;
         }
         return r;
