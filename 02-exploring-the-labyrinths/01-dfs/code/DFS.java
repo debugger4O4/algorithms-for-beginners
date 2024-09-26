@@ -26,8 +26,6 @@ public class DFS {
     // Алгоритм
     public void dfs(int vertex) {
         visited[vertex] = true;
-        System.out.print(vertex + " ");
-
         for (int adj : adjacencyList[vertex]) {
             if (!visited[adj]) {
                 dfs(adj);
