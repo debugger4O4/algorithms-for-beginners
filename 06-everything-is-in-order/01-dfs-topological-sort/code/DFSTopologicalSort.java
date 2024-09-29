@@ -5,18 +5,19 @@ public class DFSTopologicalSort {
 
     // Алгоритм
     public static void dfsTopologicalSort(
-            List<List<Integer>> adj, int node,
+            List<List<Integer>> adjencyList,
+            int node,
             boolean[] visited,
-            Stack<Integer> stack
+            Stack<Integer> sorted
     ) {
         visited[node] = true;
-        for (int i : adj.get(node)) {
+        for (int i : adjencyList.get(node)) {
             if (!visited[i]) {
-                dfsTopologicalSort(adj, i, visited, stack);
+                dfsTopologicalSort(adjencyList, i, visited, sorted);
             }
         }
 
         // Поместить текущую вершину в стек, в котором хранится результат
-        stack.push(node);
+        sorted.push(node);
     }
 }
