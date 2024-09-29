@@ -11,8 +11,9 @@ public class DFSTopologicalSort {
     ) {
         visited[node] = true;
         for (int i : adj.get(node)) {
-            if (!visited[i])
+            if (!visited[i]) {
                 dfsTopologicalSort(adj, i, visited, stack);
+            }
         }
 
         // Поместить текущую вершину в стек, в котором хранится результат
