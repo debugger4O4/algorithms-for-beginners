@@ -4,21 +4,22 @@ public class TopologicalSort {
 
 
     // Алгоритм
-    public static void topologicalSort(List<List<Integer>> adjencyList, int V) {
-        Stack<Integer> stack = new Stack<>();
+    public static List<Integer> topologicalSort(List<List<Integer>> adjencyList, int V) {
+        List<Integer> sorted = new ArrayList<>();
         boolean[] visited = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!visited[i]) {
-                dfsTopologicalSort(adjencyList, i, visited, stack);
+                dfsTopologicalSort(adjencyList, i, visited, sorted);
             }
         }
+        return sorted;
     }
 
     static void dfsTopologicalSort(
             List<List<Integer>> adjencyList,
             int node,
             boolean[] visited,
-            Stack<Integer> sorted
+            List<Integer> sorted
     ) {
         visited[node] = true;
         for (int i : adjencyList.get(node)) {
@@ -26,6 +27,6 @@ public class TopologicalSort {
                 dfsTopologicalSort(adjencyList, i, visited, sorted);
             }
         }
-        sorted.push(node);
+        sorted.add(0, node);
     }
 }

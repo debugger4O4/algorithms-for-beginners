@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class TopologicalSortTest {
 
     public List<List<Integer>> DAG;
@@ -41,6 +43,6 @@ public class TopologicalSortTest {
     @Test
     void test() {
         createDAG();
-        TopologicalSort.topologicalSort(DAG, V); // Topological sorting of the graph: 10 8 9 6 7 0 3 4 5 1 2
+        assertEquals("[10, 8, 9, 6, 7, 0, 3, 4, 5, 1, 2]", TopologicalSort.topologicalSort(DAG, V) + "");
     }
 }
