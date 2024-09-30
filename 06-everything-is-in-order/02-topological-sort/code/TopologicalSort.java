@@ -4,12 +4,12 @@ public class TopologicalSort {
 
 
     // Алгоритм
-    public static void topologicalSort(List<List<Integer>> adj, int V) {
+    public static void topologicalSort(List<List<Integer>> adjencyList, int V) {
         Stack<Integer> stack = new Stack<>();
         boolean[] visited = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!visited[i]) {
-                dfsTopologicalSort(adj, i, visited, stack);
+                dfsTopologicalSort(adjencyList, i, visited, stack);
             }
         }
     }
